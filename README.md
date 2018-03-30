@@ -37,7 +37,7 @@ However, lets face it: theese are hackish solutions that are flimsy and temporar
 
 ```Javascript
 var ele = document.getElementById("someRandomId");
-void ele.offsetHeight /*%<-- VERY IMPORTANT CODE SNIPPET! DO NOT REMOVE! URGENT! THIS IS THE BROWSER SPEAKING TO ITSELF! -->%*/;
+ele["offsetHeight"] /*%<-- VERY IMPORTANT CODE SNIPPET! DO NOT REMOVE! URGENT! THIS IS THE BROWSER SPEAKING TO ITSELF! -->%*/;
 ```
 
 
