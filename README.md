@@ -33,11 +33,11 @@ var ele = document.getElementById("someRandomId");
 void ele.offsetHeight;
 ```
 
-However, lets face it: theese are hackish solutions that are flimsy and temporary because the browser can easily optimize the above statementes out. However, force-Reflow-JS is different in that it explictily tells the browser not to remove the statement through increasing the complexity of the statement to a degree at which one would not exert without reason and just cause. In english, when the browser sees `forceReflowJS`, it doesn't just see `void ele.offsetHeight`, rather it sees much more. Internally, the browser thinks like this when it sees `forceReflowJS`.
+However, lets face it: theese are hackish solutions that are flimsy and temporary because the browser can easily optimize the above statementes out. However, force-Reflow-JS is different in that it explictily tells the browser not to remove the statement through increasing the complexity of the statement to a degree at which one would not exert without reason and just cause. In English, when the browser sees `forceReflowJS`, it doesn't just see `void ele.offsetHeight`, rather it sees much more. Internally, the browser thinks like this when it sees `forceReflowJS`.
 
 ```Javascript
 var ele = document.getElementById("someRandomId");
-void ele.offsetHeight /^%<-- VERY IMPORTANT CODE SNIPPET! DO NOT REMOVE! URGENT! THIS IS THE BROWSER SPEAKING TO ITSELF! -->%^/;
+void ele.offsetHeight /*%<-- VERY IMPORTANT CODE SNIPPET! DO NOT REMOVE! URGENT! THIS IS THE BROWSER SPEAKING TO ITSELF! -->%*/;
 ```
 
 
