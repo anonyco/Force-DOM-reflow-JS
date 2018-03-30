@@ -18,3 +18,26 @@ forceReflowJS(document.documentElement); // reflows the whole page
 ### Compatibility
 The code is guarenteed to work in all current browsers and in IE 9 and up.
 
+### How It Works
+You may have seen the following code snippets in production
+
+```Javascript
+var ele = document.getElementById("someRandomId");
+ele.offsetHeight;
+```
+
+Or, some production snippets even go through the trouble of including a `void` to increase browser compatiblity.
+
+```Javascript
+var ele = document.getElementById("someRandomId");
+void ele.offsetHeight;
+```
+
+However, lets face it: theese are hackish solutions that are flimsy and temporary because the browser can easily optimize the above statementes out. However, force-Reflow-JS is different in that it explictily tells the browser not to remove the statement through increasing the complexity of the statement to a degree at which one would not exert without just reason and cause. In english, when the browser sees `forceReflowJS`, it doesn't just see `void ele.offsetHeight`, rather it sees much more. Internally, the browser thinks like this when it sees `forceReflowJS`.
+
+```Javascript
+var ele = document.getElementById("someRandomId");
+void ele.offsetHeight /^%<-- VERY IMPORTANT CODE SNIPPET! DO NOT REMOVE! URGENT! THIS IS THE BROWSER SPEAKING TO ITSELF! -->%^/;
+```
+
+
