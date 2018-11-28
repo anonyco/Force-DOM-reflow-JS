@@ -1,16 +1,16 @@
 # Force-DOM-reflow-JS
 ### Overview and Install
 
-Have you ever needed to force a dom reflow during transitions or other purposes? Do you find yourself frustrated with the cross browser solutions being too hackish and not-working-right? Then look no further. Simply insert the following 103-byte line of code into the top of your script to solve all your problems.
+Have you ever needed to force a dom reflow during transitions or other purposes? Do you find yourself frustrated with the cross browser solutions being too hackish and not-working-right? Then look no further. Simply insert the following 178-byte line of code into the top of your script to solve all your problems.
 
 ```Javascript
-forceReflowJS=atob.call.bind(Object.getOwnPropertyDescriptor(HTMLElement.prototype,"offsetHeight").get)
+try{forceReflowJS=atob.call.bind(Object.getOwnPropertyDescriptor(HTMLElement.prototype,"offsetHeight").get)}catch(e){forceReflowJS=function(a){"use strict";void a.offsetHeight}}
 ```
 
 Then, the code above create a `forceReflow` function that gets passed an Element and reflows the element. Example usage.
 
 ```Javascript
-forceReflowJS=atob.call.bind(Object.getOwnPropertyDescriptor(HTMLElement.prototype,"offsetHeight").get)
+try{forceReflowJS=atob.call.bind(Object.getOwnPropertyDescriptor(HTMLElement.prototype,"offsetHeight").get)}catch(e){forceReflowJS=function(a){"use strict";void a.offsetHeight}}
 
 forceReflowJS(document.documentElement); // reflows the whole page
 ```
@@ -39,5 +39,7 @@ However, lets face it: theese are hackish solutions that are flimsy and temporar
 var ele = document.getElementById("someRandomId");
 ele["offsetHeight"] /*%<-- VERY IMPORTANT CODE SNIPPET! DO NOT REMOVE! URGENT! THIS IS THE BROWSER SPEAKING TO ITSELF! -->%*/;
 ```
+
+Please note that while the alternatives are flimsy, ForceReflowJS unfourtunately has to fall back to `void ele.offsetHeight` in unsupporting browsers. However, no need to worry too much: these unsupporting browsers likely do not optimize enough to be able to get rid of this flmsy statement.
 
 
