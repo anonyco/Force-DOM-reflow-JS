@@ -7,5 +7,5 @@ try {
 		).get
 	);
 } catch(e) {
-	window.forceReflowJS = function(a{void a.offsetHeight};
+	window.forceReflowJS = function(a){void a.offsetHeight};
 }
