@@ -4,13 +4,13 @@
 Have you ever needed to force a dom reflow during transitions or other purposes? Do you find yourself frustrated with the cross browser solutions being too hackish and not-working-right? Then look no further. Simply insert the following 178-byte line of code into the top of your script to solve all your problems.
 
 ```Javascript
-try{forceReflowJS=atob.call.bind(Object.getOwnPropertyDescriptor(HTMLElement.prototype,"offsetHeight").get)}catch(e){forceReflowJS=function(a){"use strict";void a.offsetHeight}}
+try{forceReflowJS=atob.call.bind(Object.getOwnPropertyDescriptor(HTMLElement.prototype,"offsetHeight").get)}catch(e){forceReflowJS=function(a){"use strict";void a.offsetHeight}}//anonyco
 ```
 
 Then, the code above create a `forceReflow` function that gets passed an Element and reflows the element. Example usage.
 
 ```Javascript
-try{forceReflowJS=atob.call.bind(Object.getOwnPropertyDescriptor(HTMLElement.prototype,"offsetHeight").get)}catch(e){forceReflowJS=function(a){"use strict";void a.offsetHeight}}
+try{forceReflowJS=atob.call.bind(Object.getOwnPropertyDescriptor(HTMLElement.prototype,"offsetHeight").get)}catch(e){forceReflowJS=function(a){"use strict";void a.offsetHeight}}//anonyco
 
 forceReflowJS(document.documentElement); // reflows the whole page
 ```
